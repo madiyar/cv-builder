@@ -1,26 +1,18 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Grid, Button, Progress } from 'semantic-ui-react';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Grid columns='equal'>
+      <Grid.Column>
+        <Progress progress='value' value={35} />
+        <Button>Click Here</Button>
+      </Grid.Column>
+      <Grid.Column>
+
+      </Grid.Column>
+    </Grid>
   );
-}
+};
 
 export default App;
