@@ -1,17 +1,16 @@
 import React from 'react';
-import { Grid, Button, Progress } from 'semantic-ui-react';
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
+import { Main, Edit } from './pages';
 
 const App = () => {
   return (
-    <Grid columns='equal'>
-      <Grid.Column>
-        <Progress progress='value' value={35} />
-        <Button>Click Here</Button>
-      </Grid.Column>
-      <Grid.Column>
-
-      </Grid.Column>
-    </Grid>
+    <BrowserRouter>
+      <Switch>
+        <Route exact path="/" component={Main} />
+        <Route path="/edit/:id" component={Edit} />
+        <Route path="*" render={() => <Redirect to="/" />} />
+      </Switch>
+    </BrowserRouter>
   );
 };
 
