@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, Redirect, useHistory } from 'react-router-dom';
 import { useLocalStorage } from './hooks';
 import { Main, Edit } from './pages';
 
@@ -7,6 +7,7 @@ export const AppContext = React.createContext({});
 
 const App = () => {
   const [store, setStore] = useLocalStorage<any[]>('store', []);
+  const history = useHistory();
 
   const deleteResume = (id : string) => {
     setStore(store.filter(cv => cv.id !== id));
@@ -20,8 +21,17 @@ const App = () => {
     setStore(store.map(cv => cv.id === data.id ? ({ ...cv, ...data }) : cv))
   };
 
+  const createResume = () => {
+    const newResume = {
+      id: `${Date.now()}${store.length}`,
+      date: Date.now()
+    };
+    setStore([ ...store, newResume ]);
+    history.push(`/edit/${newResume.id}`);
+  };
+
   return (
-    <AppContext.Provider value={{ store, deleteResume, getResume, setStore, saveResume }}>
+    <AppContext.Provider value={{ store, deleteResume, getResume, setStore, saveResume, createResume }}>
       <BrowserRouter>
         <Switch>
           <Route exact path="/" component={Main} />
