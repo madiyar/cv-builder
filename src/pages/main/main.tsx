@@ -1,10 +1,10 @@
 import React from 'react';
-import { AppContext } from 'utils';
+import { context } from 'utils';
 import { Card, Container } from 'semantic-ui-react'
 import { Navbar, Resume } from './components';
 
 const Main:React.FC = () => {
-  const { store } = React.useContext<any>(AppContext);
+  const { store } = React.useContext<any>(context);
 
   return (
     <Container>

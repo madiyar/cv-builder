@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { AppContext } from 'utils';
+import { context } from 'utils';
 import { Card, Dimmer, Image, Button } from 'semantic-ui-react'
 
 const thumbnail = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mOcOnHifwAGMgK4RoxAtgAAAABJRU5ErkJggg==";
@@ -14,13 +14,34 @@ interface ResumeProps {
 };
 
 const Resume:React.FC<ResumeProps> = ({ data }) => {
-  const [active, setShow] = useState(false);
-  const { deleteResume } = useContext<any>(AppContext);
+  const [active, setShow] = useState<boolean>(false);
+  const { remove, duplicate } = useContext<any>(context);
 
   const content = (
     <>
-      <Button as={Link} to={`/edit/${data.id}`} primary fluid style={{ marginBottom: 8 }}>Edit</Button>
-      <Button color="red" fluid onClick={() => deleteResume(data.id)}>Delete</Button>
+      <Button
+        fluid
+        primary
+        content="Edit"
+        icon="edit outline"
+        as={Link}
+        to={`/edit/${data.id}`}
+        style={{ marginBottom: 8 }}
+      />
+      <Button
+        fluid
+        content="Duplicate"
+        icon="copy outline"
+        onClick={() => duplicate(data)}
+        style={{ marginBottom: 8 }}
+      />
+      <Button
+        fluid
+        content="Delete"
+        icon="trash alternate outline"
+        color="red"
+        onClick={() => remove(data.id)}
+      />
     </>
   );
 

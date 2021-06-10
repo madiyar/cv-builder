@@ -1,4 +1,3 @@
-import React from 'react';
-
 export { default as useLocalStorage } from './useLocalStorage';
-export const AppContext = React.createContext({});
+export { default as Provider } from './context';
+export { AppContext as context } from './context';

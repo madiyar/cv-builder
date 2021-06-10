@@ -1,10 +1,10 @@
 import React from 'react';
-import { AppContext } from 'utils';
+import { context } from 'utils';
 import { Grid, Header } from 'semantic-ui-react'
 import CreateButton from './CreateButton';
 
 const Navbar:React.FC = () => {
-  const { createResume } = React.useContext<any>(AppContext);
+  const { create } = React.useContext<any>(context);
 
   return (
     <Grid columns='equal' padded>
@@ -13,7 +13,7 @@ const Navbar:React.FC = () => {
           <Header as="h1">Resumes</Header>
         </Grid.Column>
         <Grid.Column textAlign="right">
-          <CreateButton onClick={createResume} />
+          <CreateButton onClick={create} />
         </Grid.Column>
       </Grid.Row>
     </Grid>
