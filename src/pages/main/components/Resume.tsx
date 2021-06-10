@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { AppContext } from 'utils';
 import { Card, Dimmer, Image, Button } from 'semantic-ui-react'
-import { AppContext } from '../../../App';
 
 const thumbnail = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mOcOnHifwAGMgK4RoxAtgAAAABJRU5ErkJggg==";
 

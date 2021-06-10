@@ -1,9 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route, Redirect, useHistory } from 'react-router-dom';
-import { useLocalStorage } from './hooks';
-import { Main, Edit } from './pages';
-
-export const AppContext = React.createContext({});
+import { useLocalStorage, AppContext } from 'utils';
+import { Main, Edit } from 'pages';
 
 const App = () => {
   const [store, setStore] = useLocalStorage<any[]>('store', []);

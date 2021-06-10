@@ -1,10 +1,10 @@
-import React, { useContext } from 'react';
+import React from 'react';
+import { AppContext } from 'utils';
 import { Card, Container } from 'semantic-ui-react'
-import { AppContext } from '../../App';
 import { Navbar, Resume } from './components';
 
 const Main = () => {
-  const { store } = useContext<any>(AppContext);
+  const { store } = React.useContext<any>(AppContext);
 
   return (
     <Container>
