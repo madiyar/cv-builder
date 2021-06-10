@@ -54,6 +54,7 @@ const Resume:React.FC<ResumeProps> = ({ data }) => {
         onMouseEnter={() => setShow(true)}
         onMouseLeave={() => setShow(false)}
         size='medium'
+        ui={false}
         src={thumbnail}
       />
       <Card.Content>
