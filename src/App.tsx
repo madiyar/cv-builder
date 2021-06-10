@@ -3,7 +3,7 @@ import { BrowserRouter, Switch, Route, Redirect, useHistory } from 'react-router
 import { useLocalStorage, AppContext } from 'utils';
 import { Main, Edit } from 'pages';
 
-const App = () => {
+const App:React.FC = () => {
   const [store, setStore] = useLocalStorage<any[]>('store', []);
   const history = useHistory();
 

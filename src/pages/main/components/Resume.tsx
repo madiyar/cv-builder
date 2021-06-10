@@ -5,7 +5,15 @@ import { Card, Dimmer, Image, Button } from 'semantic-ui-react'
 
 const thumbnail = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mOcOnHifwAGMgK4RoxAtgAAAABJRU5ErkJggg==";
 
-const Resume = ({ data }: { data: any}) => {
+interface ResumeProps {
+  data: {
+    id: string,
+    name: string,
+    date: Date
+  }
+};
+
+const Resume:React.FC<ResumeProps> = ({ data }) => {
   const [active, setShow] = useState(false);
   const { deleteResume } = useContext<any>(AppContext);
 

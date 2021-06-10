@@ -1,7 +1,11 @@
 import React from 'react';
 import { Button } from 'semantic-ui-react';
 
-const CreateButton = ({ onClick } : { onClick: React.MouseEventHandler<HTMLButtonElement> }) => (
+interface ButtonProps {
+  onClick: React.MouseEventHandler<HTMLButtonElement>
+};
+
+const CreateButton:React.FC<ButtonProps> = ({ onClick }) => (
   <Button
     content="Create New"
     onClick={onClick}

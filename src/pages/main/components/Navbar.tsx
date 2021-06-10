@@ -3,7 +3,7 @@ import { AppContext } from 'utils';
 import { Grid, Header } from 'semantic-ui-react'
 import CreateButton from './CreateButton';
 
-const Navbar = () => {
+const Navbar:React.FC = () => {
   const { createResume } = React.useContext<any>(AppContext);
 
   return (

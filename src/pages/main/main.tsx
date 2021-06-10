@@ -3,7 +3,7 @@ import { AppContext } from 'utils';
 import { Card, Container } from 'semantic-ui-react'
 import { Navbar, Resume } from './components';
 
-const Main = () => {
+const Main:React.FC = () => {
   const { store } = React.useContext<any>(AppContext);
 
   return (
