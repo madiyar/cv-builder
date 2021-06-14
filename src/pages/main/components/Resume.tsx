@@ -1,9 +1,9 @@
-import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { useHistory } from 'react-router-dom';
 import { context } from 'utils';
-import { Card, Dimmer, Image, Button } from 'semantic-ui-react'
+import { Button, Heading, EditIcon, TrashIcon, DuplicateIcon, Pane, Text } from 'evergreen-ui';
 
-const thumbnail = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mOcOnHifwAGMgK4RoxAtgAAAABJRU5ErkJggg==";
+// const thumbnail = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mOcOnHifwAGMgK4RoxAtgAAAABJRU5ErkJggg==";
 
 interface ResumeProps {
   data: {
@@ -14,54 +14,49 @@ interface ResumeProps {
 };
 
 const Resume:React.FC<ResumeProps> = ({ data }) => {
-  const [active, setShow] = useState<boolean>(false);
+  // const [active, setShow] = useState<boolean>(false);
   const { remove, duplicate } = useContext<any>(context);
+  const history = useHistory();
 
   const content = (
     <>
       <Button
-        fluid
-        primary
-        content="Edit"
-        icon="edit outline"
-        as={Link}
-        to={`/edit/${data.id}`}
-        style={{ marginBottom: 8 }}
-      />
+        width="90%"
+        marginBottom={8}
+        appearance="primary"
+        iconBefore={EditIcon}
+        onClick={() => history.push(`/edit/${data.id}`)}
+      >
+        Edit
+      </Button>
       <Button
-        fluid
-        content="Duplicate"
-        icon="copy outline"
+        width="90%"
+        marginBottom={8}
+        iconBefore={DuplicateIcon}
         onClick={() => duplicate(data)}
-        style={{ marginBottom: 8 }}
-      />
+      >
+        Duplicate
+      </Button>
       <Button
-        fluid
-        content="Delete"
-        icon="trash alternate outline"
-        color="red"
+        width="90%"
+        intent="danger"
+        appearance="primary"
+        iconBefore={TrashIcon}
         onClick={() => remove(data.id)}
-      />
+      >
+        Delete
+      </Button>
     </>
   );
 
   return (
-    <Card>
-      <Dimmer.Dimmable
-        as={Image}
-        dimmed={active}
-        dimmer={{ active, content }}
-        onMouseEnter={() => setShow(true)}
-        onMouseLeave={() => setShow(false)}
-        size='medium'
-        ui={false}
-        src={thumbnail}
-      />
-      <Card.Content>
-        <Card.Header>{data?.name || 'Draft'}</Card.Header>
-        <Card.Meta>Saved {new Date(data.date).toISOString()}</Card.Meta>
-      </Card.Content>
-    </Card>
+    <Pane border="default" flex="1">
+      {content}
+      <Pane>
+        <Heading size={500}>{data?.name || 'Draft'}</Heading>
+        <Text size={500}>Saved {new Date(data.date).toISOString()}</Text>
+      </Pane>
+    </Pane>
   )
 };
 

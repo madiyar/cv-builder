@@ -1,18 +1,19 @@
 import React from 'react';
 import { context } from 'utils';
-import { Card, Container } from 'semantic-ui-react'
+import { Pane } from 'evergreen-ui';
 import { Navbar, Resume } from './components';
+import style from './main.module.css';
 
 const Main:React.FC = () => {
   const { store } = React.useContext<any>(context);
 
   return (
-    <Container>
+    <Pane className={style.container}>
       <Navbar />
-      <Card.Group itemsPerRow={4} stackable style={{ marginTop: 16 }}>
+      <Pane display="flex" flexWrap="wrap">
         {store.map((cv: any) => <Resume key={cv.id} data={cv} />)}
-      </Card.Group>
-    </Container>
+      </Pane>
+    </Pane>
   );
 };
 

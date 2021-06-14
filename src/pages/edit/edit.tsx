@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button } from 'semantic-ui-react';
+import { IconButton, CrossIcon } from 'evergreen-ui';
 import Discard from './components/Discard';
 
 const Edit:React.FC = () => {
@@ -7,7 +7,7 @@ const Edit:React.FC = () => {
 
   return (
     <>
-      <Button circular icon='times' size="huge" onClick={() => setOpen(true)} />
+      <IconButton icon={CrossIcon} size="large" onClick={() => setOpen(true)} />
       <Discard open={open} setOpen={setOpen} />
     </>
   );

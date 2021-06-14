@@ -1,22 +1,20 @@
 import React from 'react';
 import { context } from 'utils';
-import { Grid, Header } from 'semantic-ui-react'
+import { Pane, Heading } from 'evergreen-ui';
 import CreateButton from './CreateButton';
 
 const Navbar:React.FC = () => {
   const { create } = React.useContext<any>(context);
 
   return (
-    <Grid columns='equal' padded>
-      <Grid.Row verticalAlign="middle">
-        <Grid.Column>
-          <Header as="h1">Resumes</Header>
-        </Grid.Column>
-        <Grid.Column textAlign="right">
-          <CreateButton onClick={create} />
-        </Grid.Column>
-      </Grid.Row>
-    </Grid>
+    <Pane display="flex" paddingY={16}>
+      <Pane flex={1} alignItems="center" display="flex">
+        <Heading size={900}>Resumes</Heading>
+      </Pane>
+      <Pane>
+        <CreateButton onClick={create} />
+      </Pane>
+    </Pane>
   )
 };
 

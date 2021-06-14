@@ -1,31 +1,27 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { Button, Modal } from 'semantic-ui-react';
+import { Dialog } from 'evergreen-ui';
+import { useHistory } from 'react-router-dom';
 
 interface Props {
   open: boolean,
   setOpen: React.Dispatch<React.SetStateAction<boolean>>
 };
 
-const Discard:React.FC<Props> = ({ open, setOpen }) => (
-  <Modal
-    size="mini"
-    open={open}
-    onClose={() => setOpen(false)}
-  >
-    <Modal.Header>Discard Changes</Modal.Header>
-    <Modal.Content>
+const Discard:React.FC<Props> = ({ open, setOpen }) => {
+  const history = useHistory();
+
+  return (
+    <Dialog
+      isShown={open}
+      title="Discard Changes"
+      onCloseComplete={() => setOpen(false)}
+      preventBodyScrolling
+      confirmLabel="Discard"
+      onConfirm={() => history.push('/')}
+    >
       <p>Changes will not be saved. Do you want to proceed?</p>
-    </Modal.Content>
-    <Modal.Actions>
-      <Button positive as={Link} to="/">
-        Discard
-      </Button>
-      <Button negative onClick={() => setOpen(false)}>
-        Cancel
-      </Button>
-    </Modal.Actions>
-  </Modal>
-);
+    </Dialog>
+  )
+};
 
 export default Discard;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from 'semantic-ui-react';
+import { Button, PlusIcon } from 'evergreen-ui';
 
 interface ButtonProps {
   onClick: React.MouseEventHandler<HTMLButtonElement>
@@ -7,13 +7,13 @@ interface ButtonProps {
 
 const CreateButton:React.FC<ButtonProps> = ({ onClick }) => (
   <Button
-    content="Create New"
-    onClick={onClick}
-    labelPosition="left"
-    icon="add"
+    appearance="primary"
     size="large"
-    primary
-  />
+    iconBefore={PlusIcon}
+    onClick={onClick}
+  >
+    Create New
+  </Button>
 );
 
 export default CreateButton;
