@@ -1,21 +1,22 @@
 import React, { useContext } from 'react';
 import { useHistory } from 'react-router-dom';
-import { context } from 'utils';
+import { context, IResume, IContext } from 'utils';
 import { Button, Heading, EditIcon, TrashIcon, DuplicateIcon, Pane, Text } from 'evergreen-ui';
 
 // const thumbnail = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mOcOnHifwAGMgK4RoxAtgAAAABJRU5ErkJggg==";
 
-interface ResumeProps {
-  data: {
-    id: string,
-    name: string,
-    date: Date
-  }
+interface PropsTypes {
+  data: IResume
 };
 
-const Resume:React.FC<ResumeProps> = ({ data }) => {
+interface IUseContext {
+  remove: IContext['remove'],
+  duplicate: IContext['duplicate']
+};
+
+const Resume:React.FC<PropsTypes> = ({ data }) => {
   // const [active, setShow] = useState<boolean>(false);
-  const { remove, duplicate } = useContext<any>(context);
+  const { remove, duplicate } : IUseContext = useContext<any>(context);
   const history = useHistory();
 
   const content = (

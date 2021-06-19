@@ -1,11 +1,12 @@
 import React from 'react';
 import { Button, PlusIcon } from 'evergreen-ui';
+import { IContext } from 'utils';
 
-interface ButtonProps {
-  onClick: React.MouseEventHandler<HTMLButtonElement>
+interface PropsTypes {
+  onClick: IContext["create"]
 };
 
-const CreateButton:React.FC<ButtonProps> = ({ onClick }) => (
+const CreateButton:React.FC<PropsTypes> = ({ onClick }) => (
   <Button
     appearance="primary"
     size="large"

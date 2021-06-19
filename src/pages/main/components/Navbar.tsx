@@ -1,10 +1,14 @@
 import React from 'react';
-import { context } from 'utils';
+import { context, IContext } from 'utils';
 import { Pane, Heading } from 'evergreen-ui';
 import CreateButton from './CreateButton';
 
+interface ICreate {
+  create: IContext["create"]
+};
+
 const Navbar:React.FC = () => {
-  const { create } = React.useContext<any>(context);
+  const { create } : ICreate = React.useContext<any>(context);
 
   return (
     <Pane display="flex" paddingY={16}>

@@ -1,11 +1,11 @@
 import React from 'react';
-import { context } from 'utils';
+import { context, IContext } from 'utils';
 import { Pane } from 'evergreen-ui';
 import { Navbar, Resume } from './components';
 import style from './main.module.css';
 
 const Main:React.FC = () => {
-  const { store } = React.useContext<any>(context);
+  const { store } : { store: IContext['store'] } = React.useContext<any>(context);
 
   return (
     <Pane className={style.container}>
