@@ -1,7 +1,7 @@
 import React from 'react';
-import { useLocalStorage } from 'utils';
+import { useLocalStorage, IResume } from 'utils';
 import { useHistory } from 'react-router-dom';
-import { IResume } from './types';
+import { format } from 'date-fns';
 
 export const AppContext = React.createContext({});
 
@@ -14,7 +14,7 @@ const Context:React.FC = ({ children }) => {
     const newResume : IResume = {
       id: `${Date.now()}${store.length}`,
       date: Date.now(),
-      name: "Draft"
+      name: `Draft ${format(Date.now(), 'dd/MM')}`
     };
     setStore([ ...store, newResume ]);
     history.push(`/edit/${newResume.id}`);

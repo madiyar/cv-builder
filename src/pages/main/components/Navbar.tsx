@@ -1,6 +1,6 @@
 import React from 'react';
 import { context, IContext } from 'utils';
-import { Pane, Heading } from 'evergreen-ui';
+import Searchbar from './Searchbar';
 import CreateButton from './CreateButton';
 
 interface ICreate {
@@ -11,14 +11,11 @@ const Navbar:React.FC = () => {
   const { create } : ICreate = React.useContext<any>(context);
 
   return (
-    <Pane display="flex" paddingY={16}>
-      <Pane flex={1} alignItems="center" display="flex">
-        <Heading size={900}>Resumes</Heading>
-      </Pane>
-      <Pane>
-        <CreateButton onClick={create} />
-      </Pane>
-    </Pane>
+    <nav className="flex py-5 items-center px-3 sticky top-0 z-50 bg-white">
+      <h1 className="flex-1 text-3xl font-semibold">Resumes</h1>
+      <Searchbar />
+      <CreateButton onClick={create} />
+    </nav>
   )
 };
 

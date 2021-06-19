@@ -1,14 +1,16 @@
-import React, { useState } from 'react';
-import { IconButton, CrossIcon } from 'evergreen-ui';
-import Discard from './components/Discard';
+import React from 'react';
+import { useHistory } from 'react-router-dom';
 
 const Edit:React.FC = () => {
-  const [open, setOpen] = useState<boolean>(false);
+  const history = useHistory();
 
   return (
     <>
-      <IconButton icon={CrossIcon} size="large" onClick={() => setOpen(true)} />
-      <Discard open={open} setOpen={setOpen} />
+      <button onClick={() => history.push('/')} className="bg-gray-500 p-4 text-white rounded-full focus:outline-none hover:bg-gray-600 transition">
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
     </>
   );
 }

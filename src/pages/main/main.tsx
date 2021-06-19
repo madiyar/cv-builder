@@ -1,19 +1,19 @@
 import React from 'react';
 import { context, IContext } from 'utils';
-import { Pane } from 'evergreen-ui';
 import { Navbar, Resume } from './components';
-import style from './main.module.css';
 
 const Main:React.FC = () => {
   const { store } : { store: IContext['store'] } = React.useContext<any>(context);
 
   return (
-    <Pane className={style.container}>
+    <main className="max-w-6xl mx-auto">
       <Navbar />
-      <Pane display="flex" flexWrap="wrap">
-        {store.map((cv: any) => <Resume key={cv.id} data={cv} />)}
-      </Pane>
-    </Pane>
+      <section className="container mx-auto">
+        <div className="flex flex-wrap">
+          {store.map((cv: any) => <Resume key={cv.id} data={cv} />)}
+        </div>
+      </section>
+    </main>
   );
 };
 
