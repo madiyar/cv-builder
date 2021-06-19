@@ -1,6 +1,6 @@
 import React from 'react';
 import { context, IContext } from 'utils';
-import { Navbar, Resume } from './components';
+import { CreateCard, Navbar, Resume } from './components';
 
 const Main:React.FC = () => {
   const { store } : { store: IContext['store'] } = React.useContext<any>(context);
@@ -11,6 +11,9 @@ const Main:React.FC = () => {
       <section className="container mx-auto">
         <div className="flex flex-wrap">
           {store.map((cv: any) => <Resume key={cv.id} data={cv} />)}
+          {!store.length && (
+            <CreateCard />
+          )}
         </div>
       </section>
     </main>

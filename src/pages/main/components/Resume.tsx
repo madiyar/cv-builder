@@ -59,7 +59,7 @@ const Resume:React.FC<PropsTypes> = ({ data }) => {
     <article className="lg:w-1/4 md:w-1/2 p-4 w-full mb-4">
       <div className="block relative h-80 rounded overflow-hidden shadow-lg">
         <img alt="ecommerce" className="absolute inset-0 object-cover object-center w-full h-full block" src={thumbnail} />
-        <div className="opacity-0 hover:opacity-100 duration-300 absolute inset-0 z-10 hover:bg-white-600 hover:bg-opacity-50 p-5 flex flex-col justify-center">
+        <div className="opacity-0 hover:opacity-100 duration-300 absolute inset-0 z-10 hover:bg-gray-600 hover:bg-opacity-50 p-5 flex flex-col justify-center">
           {content}
         </div>
 
