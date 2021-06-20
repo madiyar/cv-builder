@@ -53,3 +53,24 @@
     hover:scale-105
     focus:outline-none;
 }
+
+/* Resume */
+
+.resume__btn {
+  @apply mb-4 transform hover:scale-105 text-center text-white font-semibold w-full rounded py-2 shadow-md focus:outline-none focus:ring-4 transition;
+}
+
+.resume__edit-btn {
+  @apply resume__btn;
+  @apply bg-blue-600 focus:ring-opacity-30;
+}
+
+.resume__duplicate-btn {
+  @apply resume__btn;
+  @apply bg-gray-200 text-gray-900 focus:ring-gray-700 focus:ring-opacity-30;
+}
+
+.resume__delete-btn {
+  @apply resume__btn;
+  @apply bg-red-700 focus:ring-red-700 focus:ring-opacity-30;
+}
