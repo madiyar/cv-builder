@@ -9,19 +9,18 @@ interface PropsTypes {
   img?: {
     src: string,
     alt: string
-  } | undefined,
-  overlayStyle?: string,
+  },
   onChange?(arg0: string): void,
   editable?: boolean,
   title: string,
   date?: number
 };
 
-export const Card:React.FC<PropsTypes> = ({ children, img, overlayStyle, onChange, editable, title, date }) => (
+export const Card:React.FC<PropsTypes> = ({ children, img, onChange, editable, title, date }) => (
   <article className="card">
     <div className="card__image-wrapper">
       <img alt={img?.alt || 'thumbnail'} className="card__image" src={img?.src || thumbnail} />
-      <div className={`card__overlay ${overlayStyle}`}>
+      <div className={`card__overlay ${editable ? 'p-5' : ''}`}>
         {children}
       </div>
     </div>

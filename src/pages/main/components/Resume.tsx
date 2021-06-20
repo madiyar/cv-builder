@@ -53,7 +53,6 @@ const Resume:React.FC<PropsTypes> = ({ data }) => {
 
   return (
     <Card
-      overlayStyle="p-5"
       title={data.name}
       date={data.date}
       onChange={handleRename}
