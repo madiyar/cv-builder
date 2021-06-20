@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import { context, IResume, IContext } from 'utils';
 import { Card } from './Card/Card';
@@ -9,7 +9,8 @@ interface PropsTypes {
 
 interface IUseContext {
   remove: IContext['remove'],
-  duplicate: IContext['duplicate']
+  duplicate: IContext['duplicate'],
+  save: IContext['save']
 };
 
 const Button = ({ onClick, children, className } : { onClick : any, children:any, className: string}) => (
@@ -20,9 +21,12 @@ const Button = ({ onClick, children, className } : { onClick : any, children:any
 
 const Resume:React.FC<PropsTypes> = ({ data }) => {
   // const [active, setShow] = useState<boolean>(false);
-  const { remove, duplicate } : IUseContext = useContext<any>(context);
+  const { remove, duplicate, save } : IUseContext = useContext<any>(context);
   const history = useHistory();
-  const [edit, setEdit] = useState<boolean>(false);
+
+  const handleRename = (name : string) => {
+    save({ ...data, name });
+  }
 
   const content = (
     <>
@@ -50,12 +54,10 @@ const Resume:React.FC<PropsTypes> = ({ data }) => {
   return (
     <Card
       overlayStyle="p-5"
-      title={{
-        text: data.name,
-        edit,
-        setEdit
-      }}
+      title={data.name}
       date={data.date}
+      onChange={handleRename}
+      editable
     >
       {content}
     </Card>

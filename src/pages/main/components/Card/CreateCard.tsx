@@ -16,7 +16,7 @@ const CreateCard:React.FC = () => {
   const { create } : IUseContext = useContext<any>(context);
 
   return (
-    <Card title={{ text: "Create New" }}>
+    <Card title="Create New">
       <button
         className="card__plus-btn"
         onClick={create}

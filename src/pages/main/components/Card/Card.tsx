@@ -1,5 +1,5 @@
 import React from "react";
-import { CardTitle } from "./CardTitle"
+import CardTitle from "./CardTitle"
 import { format } from 'date-fns';
 import './styles.css';
 
@@ -11,15 +11,13 @@ interface PropsTypes {
     alt: string
   } | undefined,
   overlayStyle?: string,
-  title: {
-    edit?: boolean,
-    setEdit?(arg0: boolean): void,
-    text: string
-  },
+  onChange?(arg0: string): void,
+  editable?: boolean,
+  title: string,
   date?: number
 };
 
-export const Card:React.FC<PropsTypes> = ({ img, overlayStyle, children, title, date }) => (
+export const Card:React.FC<PropsTypes> = ({ children, img, overlayStyle, onChange, editable, title, date }) => (
   <article className="card">
     <div className="card__image-wrapper">
       <img alt={img?.alt || 'thumbnail'} className="card__image" src={img?.src || thumbnail} />
@@ -28,7 +26,7 @@ export const Card:React.FC<PropsTypes> = ({ img, overlayStyle, children, title, 
       </div>
     </div>
     
-    <CardTitle edit={title.edit} setEdit={title.setEdit}>{title.text}</CardTitle>
+    <CardTitle editable={editable} onChange={onChange}>{title}</CardTitle>
     {date && <p className="mt-1">{format(date, 'dd/MM HH:ii:ss')}</p>}
   </article>
 )

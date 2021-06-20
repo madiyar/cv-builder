@@ -1,10 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 
 interface PropsTypes {
   children: string,
-  className?: string,
-  edit?: boolean,
-  setEdit?(arg0 : boolean): void
+  editable?: boolean,
+  onChange?(arg0: string): void
 };
 
 const PencilIcon = () => (
@@ -18,24 +17,51 @@ const PencilIcon = () => (
   </svg>
 );
 
-export const CardTitle:React.FC<PropsTypes> = ({ children, edit, setEdit }) => (
-  <>
-    {(!!setEdit && edit) && (
-      <input
-        value={children}
-        className="card__title-input"
-        onBlur={() => setEdit(false)}
-      />
-    )}
-    {!edit && (
-      <h2
-        className="card__title group"
-        onDoubleClick={() => !!setEdit && setEdit(true)}
-        title={!!setEdit ? "Double click!" : ""}
-      >
-        {children}
-        {!!setEdit && <PencilIcon />}
-      </h2>
-    )}
-  </>
-);
+const CardTitle:React.FC<PropsTypes> = ({ children, editable, onChange }) => {
+  const [value, setValue] = useState<string>(children || '');
+  const [isEdit, setIsEdit] = useState<boolean>(false);
+
+  const handleChange = (e : React.ChangeEvent<HTMLInputElement>) => {
+    setValue(e.target.value);
+  }
+
+  const handleKeyDown = (e : React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter' && onChange) {
+      if (!value.trim()) {
+        setValue(children);
+        setIsEdit(false);
+        alert('Input is empty');
+        return;
+      }
+      onChange(value.trim());
+      setValue(value.trim());
+      setIsEdit(false);
+    }
+  }
+
+  return (
+    <>
+      {(!!editable && isEdit) && (
+        <input
+          value={value}
+          onChange={handleChange}
+          onKeyDown={handleKeyDown}
+          className="card__title-input"
+          onBlur={() => setIsEdit(false)}
+        />
+      )}
+      {!isEdit && (
+        <h2
+          className="card__title group"
+          onDoubleClick={() => !!editable && setIsEdit(true)}
+          title={!!editable ? "Double click!" : ""}
+        >
+          {children}
+          {!!editable && <PencilIcon />}
+        </h2>
+      )}
+    </>
+  );
+};
+
+export default CardTitle;
