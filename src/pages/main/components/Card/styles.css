@@ -13,7 +13,17 @@
 }
 
 .card__overlay {
-  @apply opacity-0 hover:opacity-100 duration-300 absolute inset-0 z-10 hover:bg-gray-600 hover:bg-opacity-50 flex flex-col justify-center;
+  @apply 
+    opacity-0 
+    hover:opacity-100 
+    duration-300 
+    absolute inset-0 z-10 
+    hover:bg-gray-600 hover:bg-opacity-50 
+    flex flex-col 
+    justify-center 
+    backdrop-filter 
+    backdrop-blur 
+    bg-opacity-90;
 }
 
 /* CardTitle */
