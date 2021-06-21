@@ -11,7 +11,7 @@
 }
 
 .navbar.scroll {
-  @apply shadow-2xl rounded bg-white
+  @apply shadow-2xl rounded bg-white backdrop-blur-md	bg-opacity-50	
 }
 
 .right-menu {
