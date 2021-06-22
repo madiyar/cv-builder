@@ -1,8 +1,15 @@
 import React, { useState } from "react";
 import { context } from "utils";
 
-const PencilIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" className="card__title-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+const PencilIcon = ({ onClick } : { onClick : React.MouseEventHandler<SVGSVGElement>}) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    className="card__title-icon"
+    fill="none"
+    viewBox="0 0 24 24"
+    stroke="currentColor"
+    onClick={onClick}
+  >
     <path
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -73,7 +80,7 @@ const CardTitle:React.FC<PropsTypes> = ({ children, editable, onChange }) => {
           title={!!editable ? "Double click!" : ""}
         >
           <Title />
-          {!!editable && <PencilIcon />}
+          {!!editable && <PencilIcon onClick={() => setIsEdit(true)} />}
         </h2>
       )}
     </>
