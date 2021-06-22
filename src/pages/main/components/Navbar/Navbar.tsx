@@ -9,17 +9,15 @@ import './styles.css';
 import { useEffect } from 'react';
 import { useState } from 'react';
 
-interface ICreate {
+interface ContextTypes {
   create: IContext["create"]
 };
 
 const Navbar:React.FC = () => {
-  const { create } : ICreate = React.useContext<any>(context);
+  const { create } : ContextTypes = React.useContext<any>(context);
   const [isOnTop, setIsOnTop] = useState<boolean>(true);
 
-  const handleScroll = () => {
-    setIsOnTop(!(window.pageYOffset > 0));
-  }
+  const handleScroll = () => setIsOnTop(!(window.pageYOffset > 0));
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);

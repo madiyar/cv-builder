@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useLocalStorage, IResume } from 'utils';
 import { useHistory } from 'react-router-dom';
 import { format } from 'date-fns';
@@ -7,6 +7,7 @@ export const AppContext = React.createContext({});
 
 const Context:React.FC = ({ children }) => {
   const [store, setStore] = useLocalStorage<IResume[]>('store', []);
+  const [query, setQuery] = useState<string>('');
   const history = useHistory();
 
   // create new resume draft
@@ -39,7 +40,7 @@ const Context:React.FC = ({ children }) => {
   };
 
   return (
-    <AppContext.Provider value={{ store, remove, get, setStore, save, create, duplicate }}>
+    <AppContext.Provider value={{ store, remove, get, setStore, save, create, duplicate, query, setQuery }}>
       {children}
     </AppContext.Provider>
   );

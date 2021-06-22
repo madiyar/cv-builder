@@ -1,4 +1,5 @@
 import React from 'react';
+import { context } from 'utils';
 
 const SearchIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" className="searchbar__icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -6,11 +7,26 @@ const SearchIcon = () => (
   </svg>
 );
 
-const Searchbar:React.FC = () => (
-  <div className="searchbar">
-    <SearchIcon />
-    <input placeholder="Search..." className="searchbar__input" />
-  </div>
-);
+interface ContextTypes {
+  query:string,
+  setQuery: React.Dispatch<React.SetStateAction<string>>
+};
+
+const Searchbar:React.FC = () => {
+  const { query, setQuery } : ContextTypes  = React.useContext<any>(context);
+  const handleChange = (e : React.ChangeEvent<HTMLInputElement>) => setQuery(e.target.value);
+
+  return (
+    <div className="searchbar">
+      <SearchIcon />
+      <input
+        placeholder="Search"
+        className="searchbar__input"
+        value={query}
+        onChange={handleChange}
+      />
+    </div>
+  );
+};
 
 export default Searchbar;

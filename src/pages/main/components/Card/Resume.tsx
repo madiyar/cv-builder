@@ -7,14 +7,14 @@ interface PropsTypes {
   data: IResume
 };
 
-interface IUseContext {
+interface ContextTypes {
   remove: IContext['remove'],
   duplicate: IContext['duplicate'],
   save: IContext['save']
 };
 
 const Resume:React.FC<PropsTypes> = ({ data }) => {
-  const { remove, duplicate, save } : IUseContext = useContext<any>(context);
+  const { remove, duplicate, save } : ContextTypes = useContext<any>(context);
   const history = useHistory();
 
   const buttons = [
@@ -23,9 +23,7 @@ const Resume:React.FC<PropsTypes> = ({ data }) => {
     { name: 'Delete', onClick: () => remove(data.id), className: 'resume__delete-btn' }
   ];
 
-  const handleRename = (name : string) => {
-    save({ ...data, name });
-  }
+  const handleRename = (name : string) => save({ ...data, name });
 
   return (
     <Card
