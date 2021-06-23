@@ -32,7 +32,7 @@ const Resume:React.FC<PropsTypes> = ({ data }) => {
       onChange={handleRename}
       editable
     >
-      {buttons.map(({ name, ...rest }) => <button {...rest}>{name}</button>)}
+      {buttons.map(({ name, ...rest }) => <button {...rest} key={name}>{name}</button>)}
     </Card>
   )
 };

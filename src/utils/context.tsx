@@ -11,13 +11,15 @@ const Context:React.FC = ({ children }) => {
   const history = useHistory();
 
   // create new resume draft
-  const create = () : void => {
+  const create = ({ name } : { name?:string}) : void => {
+    const select = store.filter(item => item.name === `Draft ${format(Date.now(), 'dd/MM')}`);
+    const newName = name || `Draft ${format(Date.now(), 'dd/MM')} ${select.length ? `№${select.length+1}` : ''}`
     const newResume : IResume = {
       id: `${Date.now()}${store.length}`,
       date: Date.now(),
-      name: `Draft ${format(Date.now(), 'dd/MM')}`
+      name: newName
     };
-    setStore([ ...store, newResume ]);
+    setStore([ newResume, ...store ]);
     history.push(`/edit/${newResume.id}`);
   };
 
@@ -32,11 +34,29 @@ const Context:React.FC = ({ children }) => {
 
   // duplicate resume
   const duplicate = (data: IResume) : void => {
-    setStore([ ...store, {
-      ...data,
-      id: `${Date.now()}${store.length}`,
-      date: Date.now()
-    } ]);
+    const originalName = data.name.split('copy-')[0].trim();
+    const copies = store.filter(item => {
+      const itemName = item.name.split('copy-')[0].trim();
+      return itemName === originalName
+    });
+    const latestCopy = copies.reduce((acc, cur) => {
+      const split = cur.name.split('copy-');
+      if (split.length === 2 && +split[1] > acc) {
+        return +split[1]
+      } else {
+        return acc;
+      }
+    }, 0);
+    const name = `${originalName} copy-${latestCopy+1}`;
+    setStore([
+      {
+        ...data,
+        name,
+        id: `${Date.now()}${store.length}`,
+        date: Date.now()
+      },
+      ...store
+    ]);
   };
 
   return (

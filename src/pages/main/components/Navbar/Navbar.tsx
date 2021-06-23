@@ -1,20 +1,12 @@
-import React from 'react';
-import { context, IContext } from 'utils';
+import React, { useState, useEffect } from 'react';
 
 import Logo from './Logo';
 import Searchbar from './Searchbar';
 import CreateButton from './CreateButton';
 
 import './styles.css';
-import { useEffect } from 'react';
-import { useState } from 'react';
-
-interface ContextTypes {
-  create: IContext["create"]
-};
 
 const Navbar:React.FC = () => {
-  const { create } : ContextTypes = React.useContext<any>(context);
   const [isOnTop, setIsOnTop] = useState<boolean>(true);
 
   const handleScroll = () => setIsOnTop(!(window.pageYOffset > 0));
@@ -29,7 +21,7 @@ const Navbar:React.FC = () => {
       <Logo />
       <div className="right-menu">
         <Searchbar />
-        <CreateButton onClick={create} />
+        <CreateButton />
       </div>
     </nav>
   )

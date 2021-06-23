@@ -1,0 +1,27 @@
+.dialog {
+  @apply fixed inset-0 overflow-y-auto z-50;
+}
+
+.dialog-container {
+  @apply min-h-screen px-4 text-center;
+}
+
+.dialog-backdrop {
+  @apply fixed inset-0 bg-blue-900 bg-opacity-50 backdrop-filter backdrop-blur-sm;
+}
+
+.dialog-body {
+  @apply inline-block w-full max-w-md p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl;
+}
+
+.dialog-title {
+  @apply text-xl font-medium leading-6 text-gray-900 flex items-center mb-5;
+}
+
+.dialog-title__close-btn {
+  @apply cursor-pointer text-gray-400 hover:bg-gray-200 rounded-full p-1 transition duration-300;
+}
+
+.dialog-btn {
+  @apply inline-flex justify-center px-4 py-2 text-sm font-medium text-blue-900 bg-blue-100 border border-transparent rounded-md hover:bg-blue-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500;
+}

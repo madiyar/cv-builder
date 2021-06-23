@@ -9,7 +9,7 @@ const PlusIcon = () => (
 );
 
 interface ContextTypes {
-  create: IContext['create'],
+  create(): IContext['create'],
 };
 
 const CreateCard:React.FC = () => {

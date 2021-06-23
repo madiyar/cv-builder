@@ -6,7 +6,7 @@ export interface IResume {
 
 export interface IContext {
   store: IResume[],
-  create(): void,
+  create({ name } : { name?: string }): void,
   get(id : string): IResume | undefined,
   save(data : IResume): void,
   remove(id : string): void,

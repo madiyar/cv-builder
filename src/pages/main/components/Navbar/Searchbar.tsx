@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { context } from 'utils';
 
 const SearchIcon = () => (
@@ -14,16 +14,20 @@ interface ContextTypes {
 
 const Searchbar:React.FC = () => {
   const { query, setQuery } : ContextTypes  = React.useContext<any>(context);
+  const ref = useRef<HTMLInputElement>(null);
+
   const handleChange = (e : React.ChangeEvent<HTMLInputElement>) => setQuery(e.target.value);
+  const focusOnInput = () => ref.current && ref.current.focus();
 
   return (
-    <div className="searchbar">
+    <div className="searchbar" onClick={focusOnInput}>
       <SearchIcon />
       <input
-        placeholder="Search"
-        className="searchbar__input"
+        ref={ref}
         value={query}
         onChange={handleChange}
+        className="searchbar__input"
+        placeholder="Search"
       />
     </div>
   );
