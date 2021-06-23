@@ -7,11 +7,11 @@
     flex-col sm:flex-row 
     py-4 sm:py-5 px-3 
     sticky top-0 z-50 
-    transition-shadow duration-200;
+    transition-shadow duration-200 border-2 border-transparent;
 }
 
 .navbar.scroll {
-  @apply shadow-2xl rounded bg-white backdrop-filter backdrop-blur bg-opacity-90;
+  @apply shadow-2xl rounded bg-white backdrop-filter backdrop-blur bg-opacity-90 border-white;
 }
 
 .right-menu {
