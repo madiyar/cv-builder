@@ -3,5 +3,13 @@
 @tailwind utilities;
 
 body {
-  @apply bg-gray-50
+  @apply bg-gray-50;
+}
+
+::-webkit-scrollbar {
+  @apply w-3;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-black bg-opacity-10 hover:bg-opacity-50 rounded-full border-4 border-white border-solid;
 }

@@ -1,0 +1,21 @@
+main.edit {
+  @apply flex w-full h-screen flex-col-reverse lg:flex-row;
+  & .form {
+    @apply lg:w-1/2 w-full h-full overflow-y-scroll;
+    & .header {
+      @apply sticky top-0 bg-gray-50 pb-2 px-8;
+      &.scroll {
+        @apply shadow-2xl bg-white backdrop-filter backdrop-blur bg-opacity-90 border-white;
+      }
+    }
+    & .title {
+      @apply flex flex-col items-center;
+      & h2, & input {
+        @apply text-center text-3xl w-auto;
+      }
+    }
+  }
+  & .preview {
+    @apply bg-gray-600 w-full lg:w-1/2 flex flex-col items-end p-4 h-full;
+  }
+}

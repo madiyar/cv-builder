@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import { useScrollSpy } from 'utils';
 
 import Logo from './Logo';
 import Searchbar from './Searchbar';
@@ -7,14 +8,7 @@ import CreateButton from './CreateButton';
 import './styles.css';
 
 const Navbar:React.FC<{ openModal(): void }> = ({ openModal }) => {
-  const [isOnTop, setIsOnTop] = useState<boolean>(true);
-
-  const handleScroll = () => setIsOnTop(!(window.pageYOffset > 0));
-
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  const isOnTop = useScrollSpy();
 
   return (
     <nav className={`navbar ${!isOnTop ? 'scroll' : ''}`}>
