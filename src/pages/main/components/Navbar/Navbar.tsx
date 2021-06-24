@@ -6,7 +6,7 @@ import CreateButton from './CreateButton';
 
 import './styles.css';
 
-const Navbar:React.FC = () => {
+const Navbar:React.FC<{ openModal(): void }> = ({ openModal }) => {
   const [isOnTop, setIsOnTop] = useState<boolean>(true);
 
   const handleScroll = () => setIsOnTop(!(window.pageYOffset > 0));
@@ -21,7 +21,7 @@ const Navbar:React.FC = () => {
       <Logo />
       <div className="right-menu">
         <Searchbar />
-        <CreateButton />
+        <CreateButton openModal={openModal} />
       </div>
     </nav>
   )

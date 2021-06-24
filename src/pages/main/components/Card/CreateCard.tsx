@@ -1,5 +1,4 @@
-import React, { useContext } from 'react';
-import { context, IContext } from 'utils';
+import React from 'react';
 import { Card } from './Card';
 
 const PlusIcon = () => (
@@ -8,23 +7,19 @@ const PlusIcon = () => (
   </svg>
 );
 
-interface ContextTypes {
-  create(): IContext['create'],
+interface PropsTypes {
+  openModal(): void
 };
 
-const CreateCard:React.FC = () => {
-  const { create } : ContextTypes = useContext<any>(context);
-
-  return (
-    <Card title="Create New">
-      <button
-        className="card__plus-btn"
-        onClick={create}
-      >
-        <PlusIcon />
-      </button>
-    </Card>
-  )
-};
+const CreateCard:React.FC<PropsTypes> = ({ openModal }) => (
+  <Card title="Create New">
+    <button
+      className="card__plus-btn"
+      onClick={openModal}
+    >
+      <PlusIcon />
+    </button>
+  </Card>
+);
 
 export default CreateCard;

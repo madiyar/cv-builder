@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useEffect } from 'react';
 import { context, IContext, IResume } from 'utils';
-import { CreateCard, Navbar, Resume } from './components';
+import { CreateCard, Navbar, Resume, CreateModal } from './components';
 
 interface ContextTypes {
   store: IContext['store'],
@@ -11,6 +11,10 @@ interface ContextTypes {
 const Main:React.FC = () => {
   const { store, query } : ContextTypes = React.useContext<any>(context);
   const [list, setList] = useState<IResume[]>(store || []);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+
+  const openModal = () => setIsOpen(true);
+  const closeModal = () => setIsOpen(false);
 
   useEffect(() => {
     setList(store.filter(item => item.name.toLocaleLowerCase().includes(query.toLocaleLowerCase())));
@@ -18,15 +22,16 @@ const Main:React.FC = () => {
 
   return (
     <main className="max-w-6xl mx-auto">
-      <Navbar />
+      <Navbar openModal={openModal} />
       <section className="container mx-auto">
         <div className="flex flex-wrap">
           {list.map((cv: any) => <Resume key={cv.id} data={cv} />)}
           {!store.length && (
-            <CreateCard />
+            <CreateCard openModal={openModal} />
           )}
         </div>
       </section>
+      <CreateModal isOpen={isOpen} closeModal={closeModal} />
     </main>
   );
 };
