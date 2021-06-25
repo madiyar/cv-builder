@@ -3,7 +3,13 @@ main.edit {
   & .form {
     @apply lg:w-1/2 w-full h-full overflow-y-scroll;
     &-control {
-      @apply flex flex-wrap;
+      @apply flex flex-wrap sm:flex-nowrap sm:space-x-8;
+      & label  {
+        @apply lg:w-1/2 w-full mb-4 text-sm font-semibold flex flex-col gap-1 text-gray-500;
+        & .text-field {
+          @apply bg-gray-200 h-12 focus:outline-none focus:ring-4 p-3 px-5 focus:ring-blue-200 focus:shadow-sm  focus:bg-gray-50 rounded-lg;
+        }
+      }
     }
     & section {
       @apply px-6;

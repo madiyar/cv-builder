@@ -4,6 +4,7 @@ import { useRef } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import { context, IResume, useScrollSpy } from 'utils';
 import Input from './components/Input';
+import Section from './components/Section';
 
 import './styles.scss';
 
@@ -47,38 +48,16 @@ const Edit:React.FC = () => {
             </div>
           </div>
         </section>
-        <section>
-          <h2 className="text-xl font-bold mb-2">Personal Details</h2>
+        <Section title="Personal Details" defaultOpen>
           <div className="form-control">
             <Input label="First Name" />
             <Input label="Last Name" />
           </div>
-        </section>
-        {JSON.stringify(data)}
-        <div>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam obcaecati ab sequi asperiores nulla nesciunt! Nulla blanditiis maiores, necessitatibus, voluptatibus modi dicta explicabo et, voluptatem culpa ea repudiandae cum iusto.</div>
-        <div>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam obcaecati ab sequi asperiores nulla nesciunt! Nulla blanditiis maiores, necessitatibus, voluptatibus modi dicta explicabo et, voluptatem culpa ea repudiandae cum iusto.</div>
-        <div>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam obcaecati ab sequi asperiores nulla nesciunt! Nulla blanditiis maiores, necessitatibus, voluptatibus modi dicta explicabo et, voluptatem culpa ea repudiandae cum iusto.</div>
-        <div>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam obcaecati ab sequi asperiores nulla nesciunt! Nulla blanditiis maiores, necessitatibus, voluptatibus modi dicta explicabo et, voluptatem culpa ea repudiandae cum iusto.</div>
-        <div>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam obcaecati ab sequi asperiores nulla nesciunt! Nulla blanditiis maiores, necessitatibus, voluptatibus modi dicta explicabo et, voluptatem culpa ea repudiandae cum iusto.</div>
-        <div>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam obcaecati ab sequi asperiores nulla nesciunt! Nulla blanditiis maiores, necessitatibus, voluptatibus modi dicta explicabo et, voluptatem culpa ea repudiandae cum iusto.</div>
-        <div>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam obcaecati ab sequi asperiores nulla nesciunt! Nulla blanditiis maiores, necessitatibus, voluptatibus modi dicta explicabo et, voluptatem culpa ea repudiandae cum iusto.</div>
-        <div>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam obcaecati ab sequi asperiores nulla nesciunt! Nulla blanditiis maiores, necessitatibus, voluptatibus modi dicta explicabo et, voluptatem culpa ea repudiandae cum iusto.</div>
-        <div>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam obcaecati ab sequi asperiores nulla nesciunt! Nulla blanditiis maiores, necessitatibus, voluptatibus modi dicta explicabo et, voluptatem culpa ea repudiandae cum iusto.</div>
-        <div>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam obcaecati ab sequi asperiores nulla nesciunt! Nulla blanditiis maiores, necessitatibus, voluptatibus modi dicta explicabo et, voluptatem culpa ea repudiandae cum iusto.</div>
-        <div>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam obcaecati ab sequi asperiores nulla nesciunt! Nulla blanditiis maiores, necessitatibus, voluptatibus modi dicta explicabo et, voluptatem culpa ea repudiandae cum iusto.</div>
-        <div>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam obcaecati ab sequi asperiores nulla nesciunt! Nulla blanditiis maiores, necessitatibus, voluptatibus modi dicta explicabo et, voluptatem culpa ea repudiandae cum iusto.</div>
-        <div>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam obcaecati ab sequi asperiores nulla nesciunt! Nulla blanditiis maiores, necessitatibus, voluptatibus modi dicta explicabo et, voluptatem culpa ea repudiandae cum iusto.</div>
-        <div>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam obcaecati ab sequi asperiores nulla nesciunt! Nulla blanditiis maiores, necessitatibus, voluptatibus modi dicta explicabo et, voluptatem culpa ea repudiandae cum iusto.</div>
-        <div>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam obcaecati ab sequi asperiores nulla nesciunt! Nulla blanditiis maiores, necessitatibus, voluptatibus modi dicta explicabo et, voluptatem culpa ea repudiandae cum iusto.</div>
-        <div>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam obcaecati ab sequi asperiores nulla nesciunt! Nulla blanditiis maiores, necessitatibus, voluptatibus modi dicta explicabo et, voluptatem culpa ea repudiandae cum iusto.</div>
-        <div>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam obcaecati ab sequi asperiores nulla nesciunt! Nulla blanditiis maiores, necessitatibus, voluptatibus modi dicta explicabo et, voluptatem culpa ea repudiandae cum iusto.</div>
-        <div>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam obcaecati ab sequi asperiores nulla nesciunt! Nulla blanditiis maiores, necessitatibus, voluptatibus modi dicta explicabo et, voluptatem culpa ea repudiandae cum iusto.</div>
-        <div>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam obcaecati ab sequi asperiores nulla nesciunt! Nulla blanditiis maiores, necessitatibus, voluptatibus modi dicta explicabo et, voluptatem culpa ea repudiandae cum iusto.</div>
-        <div>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam obcaecati ab sequi asperiores nulla nesciunt! Nulla blanditiis maiores, necessitatibus, voluptatibus modi dicta explicabo et, voluptatem culpa ea repudiandae cum iusto.</div>
-        <div>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam obcaecati ab sequi asperiores nulla nesciunt! Nulla blanditiis maiores, necessitatibus, voluptatibus modi dicta explicabo et, voluptatem culpa ea repudiandae cum iusto.</div>
-        <div>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam obcaecati ab sequi asperiores nulla nesciunt! Nulla blanditiis maiores, necessitatibus, voluptatibus modi dicta explicabo et, voluptatem culpa ea repudiandae cum iusto.</div>
-        <div>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam obcaecati ab sequi asperiores nulla nesciunt! Nulla blanditiis maiores, necessitatibus, voluptatibus modi dicta explicabo et, voluptatem culpa ea repudiandae cum iusto.</div>
-        <div>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam obcaecati ab sequi asperiores nulla nesciunt! Nulla blanditiis maiores, necessitatibus, voluptatibus modi dicta explicabo et, voluptatem culpa ea repudiandae cum iusto.</div>
+          <div className="form-control">
+            <Input label="Wanted Job Title" />
+            <Input label="Phone" />
+          </div>
+        </Section>
       </div>
       <div className="preview">
         <button onClick={() => history.push('/')} className="bg-gray-700 p-4 text-white rounded-full focus:outline-none hover:bg-gray-800 transition">
