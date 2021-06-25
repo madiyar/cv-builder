@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useRef } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import { context, IResume, useScrollSpy } from 'utils';
+import Input from './components/Input';
 
 import './styles.scss';
 
@@ -44,6 +45,13 @@ const Edit:React.FC = () => {
             <div className="overflow-hidden h-1 mb-4 text-xs flex rounded bg-green-200">
               <div style={{ width: "30%" }} className="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-green-500"></div>
             </div>
+          </div>
+        </section>
+        <section>
+          <h2 className="text-xl font-bold mb-2">Personal Details</h2>
+          <div className="form-control">
+            <Input label="First Name" />
+            <Input label="Last Name" />
           </div>
         </section>
         {JSON.stringify(data)}

@@ -2,8 +2,14 @@ main.edit {
   @apply flex w-full h-screen flex-col-reverse lg:flex-row;
   & .form {
     @apply lg:w-1/2 w-full h-full overflow-y-scroll;
+    &-control {
+      @apply flex flex-wrap;
+    }
+    & section {
+      @apply px-6;
+    }
     & .header {
-      @apply sticky top-0 bg-gray-50 pb-2 px-8;
+      @apply sticky top-0 bg-gray-50 pb-2 px-8 mb-4;
       &.scroll {
         @apply shadow-2xl bg-white backdrop-filter backdrop-blur bg-opacity-90 border-white;
       }
