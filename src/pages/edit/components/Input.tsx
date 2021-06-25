@@ -6,7 +6,7 @@ interface PropsTypes {
 
 const Input:React.FC<PropsTypes> = ({ label }) => {
   return (
-    <label>
+    <label className="label">
       <span>{label}</span>
       <input className="text-field" />
     </label>

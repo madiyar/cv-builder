@@ -5,6 +5,7 @@ import { useHistory, useParams } from 'react-router-dom';
 import { context, IResume, useScrollSpy } from 'utils';
 import Input from './components/Input';
 import Section from './components/Section';
+import UploadPhoto from './components/UploadPhoto';
 
 import './styles.scss';
 
@@ -50,11 +51,15 @@ const Edit:React.FC = () => {
         </section>
         <Section title="Personal Details" defaultOpen>
           <div className="form-control">
+            <Input label="Wanted Job Title" />
+            <UploadPhoto />
+          </div>
+          <div className="form-control">
             <Input label="First Name" />
             <Input label="Last Name" />
           </div>
           <div className="form-control">
-            <Input label="Wanted Job Title" />
+            <Input label="Email" />
             <Input label="Phone" />
           </div>
         </Section>
