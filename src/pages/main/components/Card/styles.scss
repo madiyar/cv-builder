@@ -1,0 +1,85 @@
+/* Card */
+
+.card {
+  @apply lg:w-1/4 md:w-1/2 p-4 w-full mb-4;
+  &__image {
+    @apply absolute inset-0 object-cover object-center w-full h-full block;
+    &-wrapper {
+      @apply block relative h-80 rounded-lg overflow-hidden shadow-lg;
+    }
+  }
+  &__overlay {
+    @apply 
+      opacity-0 
+      hover:opacity-100 
+      duration-300 
+      absolute inset-0 z-10 
+      hover:bg-white hover:bg-opacity-10 
+      flex flex-col 
+      justify-center 
+      backdrop-filter 
+      backdrop-blur 
+      bg-opacity-90;
+    &.editable {
+      @apply sm:p-32 p-24 md:p-12 lg:p-8;
+    }
+  }
+
+  /* CardTitle */
+  &__title {
+    @apply mt-4 text-gray-900 text-lg font-medium border-b-2 border-transparent flex items-center;
+    &-input {
+      @apply card__title;
+      @apply outline-none border-b-2 border-blue-600 bg-transparent;
+    }
+    &-icon {
+      @apply h-4 w-4 ml-2 text-gray-400 opacity-0 group-hover:opacity-100 transition cursor-pointer;
+    }
+  }
+
+  /* CreateCard */
+  &__plus-btn {
+    @apply 
+      mb-4 py-2
+      
+      w-full
+      h-full
+      flex
+      items-center
+      justify-center
+  
+      text-center 
+      font-semibold 
+      text-white
+  
+      rounded-lg 
+      transform
+      transition
+      hover:scale-105
+      focus:outline-none;
+  }
+  
+  /* Resume */
+
+  &__btn {
+    @apply mb-4 transform hover:scale-105 text-center text-white font-semibold w-full rounded-lg py-2 px-4 shadow-md focus:outline-none focus:ring-4 transition flex items-center justify-start;
+    & svg {
+      @apply mr-1;
+    }
+  }
+
+  .edit-btn {
+    @apply card__btn;
+    @apply bg-blue-600 focus:ring-opacity-30 bg-opacity-70 hover:bg-opacity-100;
+  }
+
+  .duplicate-btn {
+    @apply card__btn;
+    @apply bg-gray-200 text-gray-900 focus:ring-gray-700 focus:ring-opacity-30 bg-opacity-70 hover:bg-opacity-100;
+  }
+
+  .delete-btn {
+    @apply card__btn;
+    @apply bg-red-700 focus:ring-red-700 focus:ring-opacity-30 bg-opacity-70 hover:bg-opacity-100;
+  }
+}

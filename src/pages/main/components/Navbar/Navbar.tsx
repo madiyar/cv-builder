@@ -5,7 +5,7 @@ import Logo from './Logo';
 import Searchbar from './Searchbar';
 import CreateButton from './CreateButton';
 
-import './styles.css';
+import './styles.scss';
 
 const Navbar:React.FC<{ openModal(): void }> = ({ openModal }) => {
   const isOnTop = useScrollSpy();
