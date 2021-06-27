@@ -8,8 +8,8 @@ const useScrollSpy = (ref?:any) => {
   }, [ref]);
 
   useEffect(() => {
-    window.addEventListener('wheel', handleScroll);
-    return () => window.removeEventListener('wheel', handleScroll);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, [handleScroll]);
 
   return isOnTop;
