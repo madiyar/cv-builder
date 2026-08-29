@@ -1,0 +1,112 @@
+{
+  "basics": {
+    "name": "Jordan Smith",
+    "label": "Software Engineer",
+    "email": "jordan@example.com",
+    "url": "https://example.com",
+    "summary": "Software engineer specializing in building reliable web applications and developer tools.",
+    "location": {
+      "city": "Berlin",
+      "countryCode": "DE"
+    },
+    "profiles": [
+      {
+        "network": "GitHub",
+        "username": "jordansmith",
+        "url": "https://github.com/jordansmith"
+      },
+      {
+        "network": "LinkedIn",
+        "username": "jordansmith",
+        "url": "https://linkedin.com/in/jordansmith"
+      }
+    ]
+  },
+  "work": [
+    {
+      "name": "Acme Corp",
+      "url": "https://acme.example",
+      "position": "Senior Software Engineer",
+      "location": {
+        "city": "Berlin",
+        "countryCode": "DE"
+      },
+      "startDate": "2022-03-01",
+      "endDate": "",
+      "projects": [
+        {
+          "name": "Checkout Platform",
+          "stack": "TypeScript, React, Node.js, PostgreSQL",
+          "highlights": [
+            "Led the rebuild of the checkout flow, reducing cart abandonment by 18%.",
+            "Introduced end-to-end tests, cutting production incidents by half."
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Globex Inc",
+      "url": "https://globex.example",
+      "position": "Software Engineer",
+      "location": {
+        "city": "Remote",
+        "countryCode": "DE"
+      },
+      "startDate": "2019-06-01",
+      "endDate": "2022-02-28",
+      "projects": [
+        {
+          "name": "Internal Analytics Dashboard",
+          "stack": "React, Redux, D3.js",
+          "highlights": [
+            "Built a self-serve analytics dashboard used by 200+ internal stakeholders.",
+            "Migrated the legacy jQuery frontend to React, improving load time by 40%."
+          ]
+        }
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "Technical University of Berlin",
+      "url": "https://tu.example",
+      "area": "Computer Science",
+      "studyType": "Bachelor",
+      "startDate": "2015-09-01",
+      "endDate": "2019-06-30",
+      "score": "3.7",
+      "location": {
+        "city": "Berlin",
+        "countryCode": "DE"
+      }
+    }
+  ],
+  "skills": [
+    {
+      "name": "Languages",
+      "keywords": ["JavaScript", "TypeScript", "Python"]
+    },
+    {
+      "name": "Technologies",
+      "keywords": ["React", "Node.js", "PostgreSQL", "Docker", "AWS"]
+    }
+  ],
+  "languages": [
+    {
+      "language": "English",
+      "fluency": "Native speaker"
+    },
+    {
+      "language": "German",
+      "fluency": "Professional working proficiency"
+    }
+  ],
+  "projects": [
+    {
+      "name": "open-source-widget",
+      "url": "https://github.com/jordansmith/open-source-widget",
+      "summary": "A small open-source UI widget with 500+ GitHub stars.",
+      "keywords": ["TypeScript", "React"]
+    }
+  ]
+}
