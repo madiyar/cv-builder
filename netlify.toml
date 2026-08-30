@@ -1,0 +1,9 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[[redirects]]
+  from = "/cv.pdf"
+  to = "https://your-username.github.io/your-repo-name/cv.pdf"
+  status = 200
+  force = true
